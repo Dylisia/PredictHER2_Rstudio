@@ -1,1 +1,10 @@
-
+library(caret)
+gbmfit <- gbm::gbm(label ~.,  data = data,verbose = TRUE,
+                     distribution = 'bernoulli',
+                     shrinkage = 0.1, 
+                     interaction.depth =1, 
+                     n.minobsinnode =10,
+                     n.trees = 1000,
+                     cv.folds = 10)
+gbm::gbm.perf(gbmfit)
+perf_gbm<- gbm::gbm.perf(gbmfit)
