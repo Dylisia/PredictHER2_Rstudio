@@ -1,1 +1,9 @@
+library(car)
+library(DescTools)
 
+factor<- table(data$label,data$factor)
+chisq.test(factor,correct = F)$expected
+chisq.test(factor,correct = F) #T＞5
+fisher.test(factor) #T＜5
+
+oneway.test(factor~label, data = data, var.equal = F) 
