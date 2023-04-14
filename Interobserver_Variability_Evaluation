@@ -1,1 +1,7 @@
-
+for (i in 2:Len{
+    ratings <- cbind(feature_1[,i],feature_2[,i])
+    icc <- icc(ratings, model = “oneway", 
+               type = "agreement", 
+               unit = "single", r0 = 0, conf.level = 0.95)
+    icc_val[i] <- icc$value
+  }
