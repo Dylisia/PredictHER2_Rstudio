@@ -1,3 +1,5 @@
+library(UBL)
+
 newdata <- SmoteClassif(HER2 ~ ., 
                         data,
                         C.perc = list(common = 1, rare = 5/2), 
