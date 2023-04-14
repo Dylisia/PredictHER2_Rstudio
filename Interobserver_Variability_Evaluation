@@ -1,3 +1,5 @@
+library(irr)
+
 for (i in 2:Len{
     ratings <- cbind(feature_1[,i],feature_2[,i])
     icc <- icc(ratings, model = “oneway", 
