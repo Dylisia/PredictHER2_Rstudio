@@ -1,1 +1,11 @@
+library(rms)
 
+ddist<-datadist(data)
+options(datadist="ddist")
+model <- lrm(label~.,data = data) 
+nom <- nomogram(model, fun= function(x)1/(1+exp(-x)), # or fun=plogis
+                lp=F, 
+                funlabel="Probability of HER2 positive status",
+                fun.at =c(0.01,0.05,seq(0.1:0.9,by=0.2),0.95,0.99 ))
+
+cal<- calibrate(model, method = 'boot', B=1000, data = data)
