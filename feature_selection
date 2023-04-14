@@ -1,1 +1,8 @@
-
+# z-score normalization
+scale(data)  
+#lasso
+cv_fit<-cv.glmnet(x,y,family="binomial",alpha=1,nfolds = 3)
+plot(cv_fit)
+plot(cv_fit$glmnet.fit, "lambda", label = T)
+coefficient<-coef(cv_fit,s=cv_fit$lambda.min)
+lasso_colnames<-as.character(colnames(x)[coefficient@i])
